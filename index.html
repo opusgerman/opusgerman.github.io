@@ -108,10 +108,19 @@
     © 2025 Opus German — Educational Music Tools
   </footer>
 
-  <!-- ✅ JavaScript: 자동으로 프로젝트 목록 표시 -->
+  <!-- ✅ JavaScript: 자동으로 프로젝트 목록 표시 + 맞춤 제목 설정 -->
   <script>
     const username = "opusgerman"; // GitHub 사용자명
     const list = document.getElementById("repo-list");
+
+    // 🎵 폴더 이름별 맞춤 제목 설정
+    const gameTitles = {
+      "Interval-game": "🎵 음정퀴즈",
+      "Intervall-Spiel": "🎶 Intervall-Spiel",
+      "note-reading-game": "🎼 악보 읽기 게임",
+      "noten-lesen-klavier": "🎹 Klavier Notenlesen",
+      "noten-lesen-spiel": "🎵 Noten Lesen Spiel"
+    };
 
     fetch(`https://api.github.com/users/${username}/repos`)
       .then(res => res.json())
@@ -123,7 +132,10 @@
             const li = document.createElement("li");
             const link = document.createElement("a");
             link.href = `https://${username}.github.io/${repo.name}/`;
-            link.textContent = `🎵 ${repo.name}`;
+
+            // ✅ 이름 매칭 → 없으면 기본 이름 표시
+            link.textContent = gameTitles[repo.name] || `🎮 ${repo.name}`;
+            
             li.appendChild(link);
             list.appendChild(li);
           });
@@ -135,5 +147,3 @@
   </script>
 </body>
 </html>
-
-
