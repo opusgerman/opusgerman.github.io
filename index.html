@@ -3,70 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🎵 Opus German Projects</title>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5790847148936530"
-     crossorigin="anonymous"></script>
+  <title>🎵 Opus German Music Learning Games</title>
+  <meta name="description" content="Interactive games for learning sheet music, intervals, and ear training. Play and practice music theory online for free." />
+  <meta name="keywords" content="music, sheet reading, intervals, sight reading, piano, games, learn music online" />
+  <meta name="author" content="Opus German" />
+
+  <!-- ✅ Google AdSense verification -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5790847148936530"
+      crossorigin="anonymous"></script>
 
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      text-align: center;
       background-color: #f9fafc;
-      padding: 50px;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #4158d0, #c850c0);
+      color: white;
+      padding: 30px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     h1 {
       font-size: 2em;
-      color: #222;
-      margin-bottom: 10px;
+      margin: 0;
     }
-    p {
-      color: #555;
-      margin-bottom: 30px;
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #222;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
     }
     ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
     }
     li {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 12px 20px;
-      width: 300px;
+      padding: 15px;
+      margin: 10px 0;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.2s;
+      transition: transform 0.2s ease;
     }
     li:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     a {
       text-decoration: none;
       color: #3366cc;
-      font-weight: bold;
       font-size: 18px;
+      font-weight: bold;
     }
     footer {
-      margin-top: 40px;
+      background: #f1f1f1;
+      padding: 20px;
       font-size: 0.9em;
-      color: #888;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>🎶 Opus German Projects</h1>
-  <p>Automatically showing all your public GitHub Pages projects</p>
+  <header>
+    <h1>🎶 Opus German Music Learning Hub</h1>
+    <p>Learn sheet reading, intervals, and ear training with fun web games</p>
+  </header>
 
-  <ul id="repo-list">Loading your projects...</ul>
+  <main>
+    <section>
+      <h2>About This Site</h2>
+      <p>This website offers interactive tools and games for learning and practicing music theory. 
+      You can train your sight-reading, learn interval recognition, and improve your ear training — 
+      all directly in your browser. Perfect for music students and enthusiasts!</p>
+    </section>
 
-  <footer>© 2025 Opus German</footer>
+    <section>
+      <h2>Our Games</h2>
+      <ul id="repo-list">
+        <li>Loading your projects...</li>
+      </ul>
+    </section>
 
+    <section>
+      <h2>Privacy & Policy</h2>
+      <p>This site uses Google AdSense to display ads and may use cookies to personalize content.
+      All data collection complies with GDPR and CCPA policies.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Opus German — Educational Music Tools
+  </footer>
+
+  <!-- ✅ JavaScript: 자동으로 프로젝트 목록 표시 -->
   <script>
-    const username = "opusgerman"; // ✅ 여기에 본인 GitHub 사용자명
+    const username = "opusgerman"; // GitHub 사용자명
     const list = document.getElementById("repo-list");
 
     fetch(`https://api.github.com/users/${username}/repos`)
@@ -74,7 +118,7 @@
       .then(repos => {
         list.innerHTML = "";
         repos
-          .filter(r => !r.fork) // fork 제외
+          .filter(r => !r.fork)
           .forEach(repo => {
             const li = document.createElement("li");
             const link = document.createElement("a");
@@ -91,4 +135,5 @@
   </script>
 </body>
 </html>
+
 
