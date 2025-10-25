@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎵 Opus German Projects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      background-color: #f9fafc;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2em;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    li {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 12px 20px;
+      width: 300px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.2s;
+    }
+    li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    }
+    a {
+      text-decoration: none;
+      color: #3366cc;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 Opus German Projects</h1>
+  <p>Automatically showing all your public GitHub Pages projects</p>
+
+  <ul id="repo-list">Loading your projects...</ul>
+
+  <footer>© 2025 Opus German</footer>
+
+  <script>
+    const username = "opusgerman"; // ✅ 여기에 본인 GitHub 사용자명
+    const list = document.getElementById("repo-list");
+
+    fetch(`https://api.github.com/users/${username}/repos`)
+      .then(res => res.json())
+      .then(repos => {
+        list.innerHTML = "";
+        repos
+          .filter(r => !r.fork) // fork 제외
+          .forEach(repo => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `https://${username}.github.io/${repo.name}/`;
+            link.textContent = `🎵 ${repo.name}`;
+            li.appendChild(link);
+            list.appendChild(li);
+          });
+      })
+      .catch(err => {
+        list.innerHTML = "❌ Error loading repositories.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
