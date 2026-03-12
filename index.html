@@ -8,9 +8,7 @@
   <meta name="keywords" content="music, sheet reading, intervals, sight reading, piano, games, learn music online" />
   <meta name="author" content="Opus German" />
 
-  <!-- ✅ Google AdSense verification -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5790847148936530"
-      crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5790847148936530" crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -62,44 +60,46 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+    
+    /* 👇 여기에 빠져있던 닫는 괄호(})를 추가해 디자인 깨짐을 방지했습니다! */
     a {
       text-decoration: none;
       color: #3366cc;
       font-size: 18px;
       font-weight: bold;
-   footer {
-  background: #f9fafc;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-}
+    }
 
-/* ✅ 고정 스타일: GitHub 기본 테마 덮어쓰기 */
-footer {
-  background: #f9fafc !important;
-  padding: 24px 10px !important; /* 조금 더 여유있게 */
-  font-size: 0.9em !important;
-  color: #666 !important;
-  text-align: center !important;
-  border-top: 1px solid #e0e0e0 !important;
-}
+    footer {
+      background: #f9fafc;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+    }
 
-footer a {
-  color: #666 !important;            /* 본문 색상과 동일 */
-  text-decoration: none !important;  /* 밑줄 제거 */
-  font-weight: normal !important;    /* 굵기 제거 */
-  margin: 0 6px !important;
-  transition: color 0.2s ease, opacity 0.2s ease;
-}
+    /* ✅ 고정 스타일: GitHub 기본 테마 덮어쓰기 */
+    footer {
+      background: #f9fafc !important;
+      padding: 24px 10px !important;
+      font-size: 0.9em !important;
+      color: #666 !important;
+      text-align: center !important;
+      border-top: 1px solid #e0e0e0 !important;
+    }
 
-footer a:hover {
-  color: #000 !important;            /* hover 시 약간 진하게 */
-  opacity: 0.7 !important;
-}
+    footer a {
+      color: #666 !important;
+      text-decoration: none !important;
+      font-weight: normal !important;
+      margin: 0 6px !important;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
 
-
+    footer a:hover {
+      color: #000 !important;
+      opacity: 0.7 !important;
+    }
   </style>
 </head>
 <body>
@@ -131,26 +131,24 @@ footer a:hover {
   </main>
 
   <footer>
-  © 2025 Opus German — Educational Music Tools |
+  © 2026 Opus German — Educational Music Tools |
   <a href="privacy.html" target="_blank">Privacy Policy</a> |
   <a href="terms.html" target="_blank">Terms of Use</a> |
   <a href="contact.html" target="_blank">Contact</a>
 </footer>
 
-
-  <!-- ✅ JavaScript: 자동으로 프로젝트 목록 표시 + 맞춤 제목 설정 -->
   <script>
     const username = "opusgerman"; // GitHub 사용자명
     const list = document.getElementById("repo-list");
 
-    // 🎵 폴더 이름별 맞춤 제목 설정
+    // 🎵 폴더 이름별 맞춤 제목 설정 (새 게임 이름 추가 완료!)
     const gameTitles = {
       "Interval-game": "🎵 음정퀴즈",
       "Intervall-Spiel": "🎶 Intervall Spiel",
       "note-reading-game": "🎼 악보 읽기 게임",
       "noten-lesen-klavier": "🎹 피아노 건반 + 악보읽기",
       "noten-lesen-spiel": "🎵 Noten Lesen Spiel",
-      "noten-lesen-spiel2": "🎹 Noten Lesen Spiel2"
+      "noten-lesen-spiel2": "🎹 Noten Lesen Spiel 2"
     };
 
     fetch(`https://api.github.com/users/${username}/repos`)
@@ -158,7 +156,8 @@ footer a:hover {
       .then(repos => {
         list.innerHTML = "";
         repos
-          .filter(r => !r.fork)
+          // 👇 게임이 아닌 메인 홈페이지(opusgerman.github.io)는 목록에서 숨기도록 추가했습니다!
+          .filter(r => !r.fork && r.name !== `${username}.github.io`)
           .forEach(repo => {
             const li = document.createElement("li");
             const link = document.createElement("a");
@@ -178,7 +177,6 @@ footer a:hover {
   </script>
 </body>
 </html>
-
 
 
 
